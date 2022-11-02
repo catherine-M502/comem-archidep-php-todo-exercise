@@ -5,7 +5,7 @@
 // "http://localhost:8888/comem-archidep-php-todo-exercise/", then BASE_URL
 // should be "/comem-archidep-php-todo-exercise/". If you are accessing the
 // application at "http://localhost:8888", then BASE_URL should be "/".
-define('BASE_URL', '/comem-archidep-php-todo-exercise/');
+define('BASE_URL', '/');
 
 // Database connection parameters.
 define('DB_USER', 'todolist');
@@ -44,7 +44,7 @@ if (isset($_POST['action'])) {
 
       $id = $_POST['id'];
       if(is_numeric($id)) {
-        $updateQuery = 'UPDATE todo SET done = NOT done'; // IMPLEMENT ME
+        $updateQuery = 'UPDATE todo SET done = NOT done WHERE id =' .$id; // IMPLEMENT ME
         if(!$db->query($updateQuery)) {
           die(print_r($db->errorInfo(), true));
         }
